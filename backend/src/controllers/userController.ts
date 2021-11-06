@@ -30,13 +30,6 @@ export async function getUser(req: Request, res: Response) {
     res.json(users[0]);
 }
 
-export async function getUserByControl(req: Request, res: Response) {
-    const control = req.params.userControl;
-    const con = await connect();
-    const users = await con.query('SELECT * FROM user WHERE control = ?', [control]);
-    res.json(users[0]);
-}
-
 export async function deleteUser(req: Request, res: Response) {
     const id = req.params.userId;
     const con = await connect();

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.deleteUser = exports.getUserByControl = exports.getUser = exports.createUser = exports.getAll = void 0;
+exports.updateUser = exports.deleteUser = exports.getUser = exports.createUser = exports.getAll = void 0;
 // DB
 const database_1 = require("../database");
 function getAll(req, res) {
@@ -45,15 +45,6 @@ function getUser(req, res) {
     });
 }
 exports.getUser = getUser;
-function getUserByControl(req, res) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const control = req.params.userControl;
-        const con = yield (0, database_1.connect)();
-        const users = yield con.query('SELECT * FROM user WHERE control = ?', [control]);
-        res.json(users[0]);
-    });
-}
-exports.getUserByControl = getUserByControl;
 function deleteUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const id = req.params.userId;

@@ -8,9 +8,11 @@ router.route('/')
     .get(getAll)
     .post(createUser);
 
+
 router.route('/:userId')
     .get(getUser)
     .delete(deleteUser)
     .put(updateUser);
+
 
 export default router;
